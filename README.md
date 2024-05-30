@@ -1,19 +1,30 @@
-## Foundry
+# PROJECT
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+This project is meant to be a stablecoin where users can deposit WETH and WBTC in exchange for a token that will be pegged to the USD.
 
-Foundry consists of:
+It would be:
+- An anchored/pegged stablecoin -> $1
+- Use the algorithmic stability mechanism (minting)
+- Collateral: Exogenous -> wETH, wBTC
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Quickstart
+```shell
+git clone https://github.com/ifaycodes/decentralized-stablecoin
+cd foundry-defi-stablecoin-f23
+forge build
+```
 
-## Documentation
+### Updates
+Install:
 
-https://book.getfoundry.sh/
+openzeppelin contract
+```forge install openzeppelin/openzeppelin-contracts@v4.8.3 --no-commit
+```
+Chainlink contracts
+```
+forge install smartcontractkit/chainlink-brownie-contracts --no-commit
+```
 
-## Usage
 
 ### Build
 
@@ -25,6 +36,11 @@ $ forge build
 
 ```shell
 $ forge test
+```
+### Test coverage
+
+```shell
+$ forge coverage
 ```
 
 ### Format
@@ -42,13 +58,13 @@ $ forge snapshot
 ### Anvil
 
 ```shell
-$ anvil
+$ make anvil
 ```
 
 ### Deploy
 
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+$ make deploy
 ```
 
 ### Cast
